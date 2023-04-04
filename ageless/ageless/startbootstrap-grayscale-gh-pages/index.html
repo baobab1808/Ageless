@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Age recognition</title>
+        <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+		<!-- https://highlightjs.org/ -->
+		<!-- https://cdnjs.com/libraries/highlight.js/ -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/tomorrow-night-bright.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top">Age recognition</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#problem">The problem</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#state-art">State of the art</a></li>
+						<li class="nav-item"><a class="nav-link" href="#data">Dataset</a></li>
+						<li class="nav-item"><a class="nav-link" href="#methods">Methods</a></li>
+						<li class="nav-item"><a class="nav-link" href="#performance">Performance</a></li>
+						<li class="nav-item"><a class="nav-link" href="#conclusion">Conclusion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup">About us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0 text-uppercase">Age recognition</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">You walk into a bar and order a beer. The bartender asks you for your ID and you are outraged because you are obviously over 18.
+</br></br>But is it really that obvious?
+</h2>
+                        <!--<a class="btn btn-primary" href="#problem">Learn more</a>-->
+						<a href="#problem"><button id="button1">Learn more</button></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- The problem-->
+        <section class="problem-section text-center" id="problem">
+            <div class="container px-4 px-lg-5" >
+                <div class="row gx-4 gx-lg-5 justify-content-left">
+                    <div class="col-lg-8" style="text-align:left">
+                        <h2 class="text-white mb-4" style="font-size: 50px; font-weight:bold">The problem</h2>
+                        <p class="text-white-50" style="text-align:justify">
+                            Age of a person is expressed in their facial structures and human vision is able to estimate the age of a person based on only visual information. Can the computer be taught to recognize the age of a person as reliably as human observers?
+
+The process of age estimation can be thought of in two different ways. The age can be determined directly from images, giving an estimate in years. This approach is called the regression problem. Another possible approach is to place a person in an age group based on the photo. This is the classification problem.
+
+In this work, we test both different approaches and compare them. We train a custom neural network based on the EfficientNet model and evaluate its’ classification performance. We then compare this data to a publicly available regression estimator DeepFace and compare the results to evaluate the relative performance of our model.
+
+                        </p>
+						
+                    </div>
+					<img class="img-fluid" src="assets/img/diagram.png" alt="..." style="padding-bottom: 20%; padding-top:10%; margin-top: 0px; width:auto; float:right;"/>
+                </div>
+                
+            </div>
+        </section>
+        <!-- State of the art-->
+        <section class="state-art-section bg-light" id="state-art">
+            <div class="container px-4 px-lg-5">
+				<h2 style="font-size: 50px; font-weight:bold">State of the art</h2>
+                <!-- State of the art-->
+                <!--<div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/pca.png" alt="..." /></div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4>PCA</h4>
+                            <p class="text-black-50 mb-0">Derived from Karhunen-Loeve's transformation. Given an s-dimensional vector representation of each face in a training set of images, Principal Component Analysis (PCA) tends to find a t-dimensional subspace whose basis vectors correspond to the maximum variance direction in the original image space. This new subspace is normally lower dimensional (t&lt;&lt;s). If the image elements are considered as random variables, the PCA basis vectors are defined as eigenvectors of the scatter matrix.</p>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6"><figure><img class="img-fluid" src="assets/img/pca.png" alt="..." /><figcaption style="font-size:12px; text-align:center;">Principal component analysis explained simply<br/>Linh Ngo, June 14, 2018</figcaption></figure></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 state-art">
+                            <div class="d-flex h-100">
+                                <div class="state-art-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white" style="font-size: 30px; font-weight:bold">PCA</h4>
+                                    <p class="mb-0 text-white-50" style="text-align:justify">Derived from Karhunen-Loeve's transformation. Given an s-dimensional vector representation of each face in a training set of images, Principal Component Analysis (PCA) tends to find a t-dimensional subspace whose basis vectors correspond to the maximum variance direction in the original image space. This new subspace is normally lower dimensional (t&lt;&lt;s). If the image elements are considered as random variables, the PCA basis vectors are defined as eigenvectors of the scatter matrix.</p>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- State of the art One Row-->
+                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-6"><figure><img class="img-fluid" src="assets/img/pcaica.png" alt="..." /><figcaption style="font-size:12px; text-align:center;">Independent Component Analysis (ICA) Finding hidden factors in data<br/> Shawhin Talebi, Mar 17</figcaption></figure></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 state-art">
+                            <div class="d-flex h-100">
+                                <div class="state-art-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white" style="font-size: 30px; font-weight:bold">ICA</h4>
+                                    <p class="mb-0 text-white-50" style="text-align:justify">Independent Component Analysis minimizes both second-order and higher-order dependencies in the input data and attempts to find the basis along which the data (when projected onto them) are - statistically independent.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- State of the art Two Row-->
+                <div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6"><figure><img class="img-fluid" src="assets/img/pcalda.png" alt="..." /><figcaption style="font-size:12px; text-align:center;">What do you mean by Linear Discriminant Analysis?<br/>Linear Discriminant Analysis (i2tutorials)
+Top Machine learning interview questions and answers September 30, 2019</figcaption><figure></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 state-art">
+                            <div class="d-flex h-100">
+                                <div class="state-art-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white" style="font-size: 30px; font-weight:bold">LDA</h4>
+                                    <p class="mb-0 text-white-50" style="text-align:justify">Linear Discriminant Analysis finds the vectors in the underlying space that best discriminate among classes. For all samples of all classes the between-class scatter matrix SB and the within-class scatter matrix SW are defined. The goal is to maximize SB while minimizing SW, in other words, maximize the ratio det|SB|/det|SW| . This ratio is maximized when the column vectors of the projection matrix are the eigenvectors of (SW^-1 × SB).</p>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!-- Kernel-->
+				<div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-6"><figure><img class="img-fluid" src="assets/img/kernel.png" alt="..." /><figcaption style="font-size:12px; text-align:center;">What is the kernel trick? Why is it important? <br/> Grace Zhang Nov 11,2018</figcaption></figure></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 state-art">
+                            <div class="d-flex h-100">
+                                <div class="state-art-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white" style="font-size: 30px; font-weight:bold">Kernel methods</h4>
+                                    <p class="mb-0 text-white-50" style="text-align:justify">Kernel methods are a generalization of linear methods. Direct nonlinear manifold schemes are explored to learn this nonlinear manifold.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--EP-->
+				<div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6">
+						<figure><img class="img-fluid" src="assets/img/ep.png" alt="..." /><figcaption style="font-size:12px; text-align:center;">Evolutionary Pursuit and Its Application to Face Recognition
+<br/>Chengjun Liu, Member, IEEE, and Harry Wechsler, Fellow, IEEE</figcaption></figure>
+					</div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 state-art">
+                            <div class="d-flex h-100">
+                                <div class="state-art-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white" style="font-size: 30px; font-weight:bold">EP</h4>
+                                    <p class="mb-0 text-white-50" style="text-align:justify">An eigenspace-based adaptive approach that searches for the best set of projection axes in order to maximize a fitness function, measuring at the same time the classification accuracy and generalization ability of the system. Because the dimension of the solution space of this problem is too big, it is solved using a specific kind of genetic algorithm called Evolutionary Pursuit.</p>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!-- CNN-->
+				<div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-6"><figure><img class="img-fluid" src="assets/img/cnn.png" alt="..." /><figcaption style="font-size:12px; text-align:center;">Convolutional Neural Networks<br/> Cezanne Camacho June 3, 2018</figcaption></figure></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 state-art">
+                            <div class="d-flex h-100">
+                                <div class="state-art-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white" style="font-size: 30px; font-weight:bold">CNN</h4>
+                                    <p class="mb-0 text-white-50" style="text-align:justify">Neural networks are a subset of machine learning, and they are at the heart of deep learning algorithms. They are comprised of node layers, containing an input layer, one or more hidden layers, and an output layer. Each node connects to another and has an associated weight and threshold. If the output of any individual node is above the specified threshold value, that node is activated, sending data to the next layer of the network. Otherwise, no data is passed along to the next layer of the network.
+Convolutional neural networks are distinguished from other neural networks by their superior performance with image, speech, or audio signal inputs. They have three main types of layers, which are: Convolutional layer, Pooling layer, Fully-connected (FC) layer
+</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--DeepFace-->
+				<div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6">
+						<figure><img class="img-fluid" src="assets/img/deepface.png" alt="..." /><figcaption style="font-size:12px; text-align:center;">DeepFace: Closing the Gap to Human-Level Performance in Face Verification</br>
+Yaniv Taigman, Ming Yang, Marc’Aurelio Ranzato, Lior Wolf
+</figcaption></figure>
+					</div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 state-art">
+                            <div class="d-flex h-100">
+                                <div class="state-art-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white" style="font-size: 30px; font-weight:bold">DeepFace</h4>
+                                    <p class="mb-0 text-white-50" style="text-align:justify">Facebook Research presents a system called Deepface that has closed the majority of the remaining gap in the most popular benchmark in unconstrained face recognition, and is now at the brink of human level accuracy. It is trained on a large dataset of faces acquired from a population vastly different than the one used to construct the evaluation benchmarks, and it is able to outperform existing systems with only very minimal adaptation. The network architecture is based on the assumption that once the alignment is completed, the location of each facial region is fixed at the pixel level. It is therefore possible to learn from the raw pixel RGB values, without any need to apply several layers of convolutions as is done in many other networks.</p>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+		<!-- Data set-->
+        <section class="data-section text-center" id="data" >
+            <div class="container px-4 px-lg-5" style="background-image:url('assets/img/data.png');">
+                <div class="row gx-4 gx-lg-5 justify-content-center" style="margin-top: -10%;">
+                    <div class="col-lg-8" style="text-align:justify; background-color:black; ">
+                        <h2 class="text-white mb-4" style="font-size: 50px; font-weight:bold">Dataset</h2>
+                        <p class="text-white-50">
+                            Due to the size of the dataset, labels of ground truth present and free availability, the OUI-Adience dataset of faces in the wild was used. To improve the performance of our network, preprocessing step was omitted by using the aligned images in the dataset. Furthermore, only images with approximately frontal alignment were used (Eran Eidinger, Roee Enbar, and Tal Hassner, Age and Gender Estimation of Unfiltered Faces).<br/><br/>Dataset used in this project was taken from <a href="https://talhassner.github.io/home/projects/Adience/Adience-data.html"> here</a>.<br/><br/>This dataset contains 26,580 images which are portraying 2,284 individuals, classified into 8 age groups (0-2, 4-6, 8-13, 15-20, 25-32, 38-43, 48-53, 60- ). The images are cropped and aligned so that the dimensions of images are 816x816 px. The dataset is composed of 5 folds to allow 5-fold 'leave one out' cross validation. To prevent overfitting, each fold contains different subjects. </br></br>Each fold is described by a csv file with 12 columns:
+							<ul class="text-white-50" style="margin-top:-60px;list-style-type:none;">
+							  <li><b><em>user_id</em></b> - the folder in the dataset containing the image</li>
+							  <li><b><em>original_image</em></b> - image name in the dataset</li>
+							  <li><b><em>face_id</em></b> - the Face ID in the original Flickr image, can be ignored</li>
+							  <li><b><em>age</em></b> - age label of the face</li>
+							  <li><b><em>gender</em></b> - gender label of the face</li>
+							</ul>
+                        </p>
+					<cite class="text-white-50" style="font-size:8px">E. Eidinger, R. Enbar and T. Hassner, "Age and Gender Estimation of Unfiltered Faces," in IEEE Transactions on Information Forensics and Security, vol. 9, no. 12, pp. 2170-2179, Dec. 2014, doi: 10.1109/TIFS.2014.2359646.</cite>
+                    </div>
+                </div>
+				<!--<img class="img-fluid" src="assets/img/dataset.png" alt="..." style="padding-bottom: 20px; margin-top: 0px; width:50%; height:50%;" />-->
+            
+			</div>
+        </section>
+		<!-- Methods-->
+        <section class="methods-section text-center" id="methods">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4" style="font-size: 50px; font-weight:bold">Methods</h2>
+						<h3 class="text-white mb-4"><b>First approach: DeepFace</b></h3>
+                        <p class="text-white-50">
+							First, <a href="https://pypi.org/project/deepface/">DeepFace</a> was used for age regression. Since it is a regression solver, we have used the estimated age of the person to
+classify subjects into buckets.
+                            <pre><code style="text-align:left">y_model_noEnforce = []
+i=0
+# iterate over all files in the fold
+for index, row in metadataFilt.iterrows():
+    # construct the filename
+    filename = dbPath + row['user_id'] + '/landmark_aligned_face.' + \ </br>    str(row['face_id']) + '.' + row['original_image']
+    tmp = DeepFace.analyze(filename, actions=['age'], enforce_detection=False)
+    y_model_noEnforce.append([i, tmp['age']])
+    print("Process image (row %d): " % i + filename)
+    print("\t model: %d, expected: " % tmp['age'] + gindxs[y_real[i]])
+    i=i+1
+							</code></pre>
+							<a class="btn btn-primary" href="docs/ProjectAdditional.pdf" target="_blank">Documentation</a>
+                        </p>
+						
+						</br></br>
+												<h3 class="text-white mb-4"><b>Second approach: OpenCV using a pretrained model</b></h3>
+						<p class="text-white-50">
+							For the second approach, an <a href="https://pypi.org/project/opencv-python/">OpenCV</a> method dnn with <a href="https://talhassner.github.io/home/publication/2015_CVPR">Caffe model by Levi and Hassner</a>
+was used.
+							<pre><code style="text-align:left">AGE_BUCKETS = ["(0, 2)", "(4, 6)", "(8, 12)",\ </br> "(15, 20)", "(25, 32)", "(38, 43)", "(48, 53)", "(60, 100)"]
+
+prototxtPath = os.path.sep.join(["/home/jost/dev/ssip2021/models", "deploy_age.prototxt"])
+weightsPath = os.path.sep.join(["/home/jost/dev/ssip2021/models", "age_net.caffemodel"])
+ageNet = cv2.dnn.readNet(prototxtPath, weightsPath)
+
+y_model_second = []
+y_model_second_conf = []
+
+i=0
+
+# iterate over all files in the fold
+for index, row in metadataFilt.iterrows():
+    # construct the filename
+    filename = dbPath + row['user_id'] + '/landmark_aligned_face.' + \ </br>    str(row['face_id']) + '.' + row['original_image']
+    face = cv2.imread(filename)
+    faceBlob = cv2.dnn.blobFromImage(face,1.0, (227, 227),\ </br>    (78.4263377603, 87.7689143744, 114.895847746), swapRB=False)
+    # predict age
+    ageNet.setInput(faceBlob)
+    preds = ageNet.forward()
+    j = preds[0].argmax()
+    age = AGE_BUCKETS[j]
+    ageConfidence = preds[0][j]
+    y_model_second.append(age)
+    y_model_second_conf.append(ageConfidence)
+    # output data
+    print("Process image (row %d): " % i + filename)
+    #print("\t model: %s, expected: %s" % (age, gindxs[y_real[i]]))
+    print("\t model: %s, expected: %s" % (age, metadataFilt['age'][index]))
+    i=i+1
+							</code></pre>
+							<cite class="text-white-50" style="font-size:8px; margin-top:-5%">Levi, G., & Hassner, T. (2015). Age and gender classification using convolutional neural networks. In Proceedings of the IEEE conference on computer vision and pattern recognition workshops (pp. 34-42)</cite>
+												</br><a class="btn btn-primary" href="docs/ProjectAdditional.pdf" target="_blank">Documentation</a>
+						</p>
+
+						</br>
+						</br>
+						<h3 class="text-white mb-4"><b>Demo</b></h3>
+						<p class="text-white-50">To showcase some of the existing pre-trained models, we have integrated DeepFace and an OpenCV compatible (Hassner and Levi, see methods section for more details) models into an OpenCV based live image acquisition GUI built using Jupyter. An example of OpenCV based age classification is shown as an overlay on the recorded image, while a more thorough analysis results of the DeepFace model are calculated on demand and shown in the output window on the right.</p>
+						<img class="img-fluid" src="assets/img/image.png" alt="..." style="margin-top:-5%; margin-bottom: 7%"/>
+						<a class="btn btn-primary" href="https://github.com/jostst/age_estimation_demo">See the code on GitHub</a>
+						</br></br>
+						<h3 class="text-white mb-4" style="margin-top: 10%"><b>Third approach: Custom neural network, based on EfficientNet</b></h3>
+						<p class="text-white-50">
+							For the third approch, a custom network was built on top of the <a href="https://pypi.org/project/efficientnet/"> EfficientNet network</a>.
+Before the efficientNet netwrok, we have added a batch normalizaton layer. After the EfficientNetB1 network, batch normalization, global
+max pooling 2D and dropout layers are added before the last fully connected layer that transforms EfficientNet detected features to age groups.
+Definition of the model is given below. The network initialization was performed in <a href="https://keras.io/">Keras</a>.
+							<pre><code style="text-align:left"># Define how the model will look like
+base_efficientnet_model = EfficientNetB1(input_shape = (240, 240, 3), \ </br> include_top = False, weights = 'imagenet')
+
+age_model = Sequential()
+age_model.add(BatchNormalization(input_shape = (240, 240, 3)))
+age_model.add(base_efficientnet_model)
+age_model.add(BatchNormalization())
+age_model.add(GlobalMaxPooling2D())
+age_model.add(Dropout(0.5))
+age_model.add(Dense(4, activation = 'softmax'))
+							
+							</code></pre>
+							<a class="btn btn-primary" href="docs/SSIP_2021_age_recognition.pdf" target="_blank">Documentation</a>
+						</p>
+
+                    </div>
+                </div>
+                <!--<img class="img-fluid" src="assets/img/ipad.png" alt="..." />-->
+            </div>
+        </section>
+		<!-- Performance evaluation-->
+        <section class="performance-section text-center" id="performance">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 " style="text-align:justify">
+                        <h2 class="text-white mb-4" style="font-size: 50px; font-weight:bold">Performance</h2>
+                        <p class="text-white-50" >
+                                                       Firstly, we measured performances on Deepface and a pre-trained model so we could compare it with our custom model.</p>
+													   <div style="background:white; display:inline-block;">
+														<img class="img-fluid" src="assets/img/Deepface-Performance2.png" alt="..." style="display:inline-block; float:left; width:50%;"/>
+														<img class="img-fluid" src="assets/img/Pretrained-Performance1.png" alt="..." style="display: inline-block; float:right; width:50%;"/>
+													   </div>
+													   <p class="text-white-50"style="text-align:center"> Figure 1 - Deepface performance, Figure 2 - Pre-trained model performance</p>
+															
+													  <p class="text-white-50"> While Deepface had problems with classifications by putting almost every subject into the same age group, a pre-trained model worked pretty well and got high results. The concern about a pre-trained model is in the dataset used for verification because the authors didn't mention if they used the same dataset for training.</p>
+														<div style="background:white; display:inline-block;">
+														<img class="img-fluid" src="assets/img/Performance6.png" alt="..." style="display:inline-block; float:left; width:50%;"/>
+														<img class="img-fluid" src="assets/img/Performance4.png" alt="..." style="display: inline-block; float:right; width:50%; margin-top: 10%"/>
+													   </div>
+													   <p class="text-white-50"style="text-align:center"> Figure 1 - Custom model performance, Figure 2 - Pre-trained model performance</p>
+<p class="text-white-50">Results and progress on our custom 8 group model, based on EfficientNetB1, were really low and the reason is in the unbalanced dataset, which had the most photos of people between (25, 32). Then we introduced 4 combined groups: 0 - (0, 2) and (4, 6), 1 - (8, 12) and (15, 20), 2 - (25, 32) and (38, 43), 3 - (48, 53) and (60, 100). The model worked pretty poorly and gave almost the same results as previous.</p>
+ <div style="background:white; display:center;"><img class="img-fluid" src="assets/img/Performance5.png" alt="..." style="width:100%;"/></div></br></br> <p class="text-white-50"> The problem was in the facial features like makeup, glasses, mask, the position of the face, and more. With longer training and in combination with few other methods, the model should be giving better results.
+A comparison of these results could be summed up to this: Deepface network and our network had the same issues, the same problems, and gave similar confusion matrix, while a pre-trained model had no problems and did a decent job.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- Conclusion-->
+        <section class="conclusion-section text-center" id="conclusion">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4" style="font-size: 50px; font-weight:bold">Conclusion</h2>
+                        <p class="text-white-50" style="text-align:justify">
+							In this project, we have tested different algorithms that predict a persons' age. This is a problem that has a lot of different possible application, from determining the age of the buyer at the vending machines, law enforcement applications and verification of patient age in the health system, where such records are insufficient. We have tested the performance of both regression and classification models which try to evaluate the age directly or based on a set of predifined age groups, respectively. During the performance evaluation, the classification models proved to be more reliable, correctly predicting the majority of the age groups.
+
+</br></br>Based on the knowledge obtained during the exploration of the existing methods, we attemped to develop a custom classification model. The custom model was built around an EfficientNet module, which would extract features from the image and additional custom classification layers. Verification of our custom model exposed a lack in classification performance, achieving AUC values of 0.5 to 0.51. The evaluated ability of our network was thus only marginally better than pure guessing. This could be due to many different reasons, including insufficient training due to the lack of time and resources.
+
+</br></br>Generally, age determination turned out to be a complex problem. On one hand, facial age is difficult to reliably evaluate, since many factor beside age can influence the look of a person. Lifestyle, makup, eyewear and surgical procedures can change the way a person look. Additionally, classification algorithms cannot percieve the effects of surrounding, such as unhomogeneus illumination, offset in white balance and obstructions of part of the face due to objects (cellphone, for example). All these factors make the problem more difficult. Last but not the least, selection of appropriate dataset with high quality images for initial training could play an important role in training a reliable network, but a search for a good dataset is an ambitious and time consuming endeavour.
+
+</br></br>In the future, we could try to implement a two-pronged approach; first, train a new neural network on different datasets for a longer period of time and second, develop a completely different age estimator. A candidate could be an algorithm comprising of two stages, where the first stage extracts fiducial points on the face based on eye, nose, mouth and ear positions. The combined estimated age along with the fiducial points data could then be fed into a shallow network which would perform evaluation of the persons' age. Since the network would be shallow, it would be both faster to train and need less input data to obtain a better performance.
+
+</br></br>In summary, we have explored different existing algorithms and models, identifiying the key difficulties in the age estimation problem. We have proposed a new methodology to assess a persons age that is based on a combination of face fiducial points and could be combined with a more traditional network to obtain an even better age estimation performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About us-->
+        <section class="signup-section" id="signup">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <!--<i class="far fa-paper-plane fa-2x mb-2 text-white"></i>-->
+                        <h2 class="text-white mb-5" style="font-size: 50px; font-weight:bold">About us</h2>
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <!--<form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">-->
+                            <!-- Email address input-->
+                            <!--<div class="row input-group-newsletter">
+                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
+                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
+                            </div>
+                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
+                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>-->
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <!--<div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3 mt-2 text-white">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>-->
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <!--<div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
+                        </form>-->
+						<p style="color:white; font-size: 19px; text-align:justify" >
+							Team was organized by segmenting the work to be performed to best suit the experiences and knowledge of each member.</br></br> <b>Barbara Breš</b>, having experience with building websites was tasked with preparation of the web framework and final presentation. </br><b>Dominik Babić</b> took on the role of dataset analyst, searching for appropriate datasets and exploring the tagging metadata. </br><b>Marin Drabić</b>, being experience in the machine learning, took the role of Lead developer and designed the pipeline, structured the neural network and performed the training. </br><b>Jošt Stergar</b>, being the oldest member, took on the role of the team leader coordinating the work and taking care of reports. Additionally, due to his experience with integrating software for image acquisition systems, he created the demo application. </br></br>All the members contributed to the literature overview and final data analysis.
+						</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About us-->
+        <section class="contact-section bg-black">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <h4 class="text-uppercase m-0" style="font-size:18px">Dominik Babić</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">
+									<img class="img-fluid" src="assets/img/dominik.jpg" alt="..." />
+									<br/>
+									<br/>
+									<br/>
+									<p style="color:black; font-size:17px">
+									Researcher, Dataset analyst
+									</p>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <h4 class="text-uppercase m-0" style="font-size:18px">Barbara Breš</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">
+									<img class="img-fluid" src="assets/img/barbara.jpg" alt="..." />
+									<br/>
+									<br/>
+									<br/>
+									<p style="color:black; font-size:17px">
+									Web and Presentation chief, Researcher
+									</p>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <h4 class="text-uppercase m-0" style="font-size:18px">Marin Drabić</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">
+									<img class="img-fluid" src="assets/img/marin.png" alt="..." />
+									<br/>
+									<br/>
+									<br/>
+									<p style="color:black; font-size:17px">
+									Lead developer, Researcher
+									</p>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <h4 class="text-uppercase m-0" style="font-size:18px">Jošt Stergar</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">
+									<img class="img-fluid" src="assets/img/jost.jpg" alt="..." />
+									<br/>
+									<br/>
+									<br/>
+									<p style="color:black; font-size:17px">
+									Team leader, Researcher
+									</p>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social d-flex justify-content-center">
+                    <a class="mx-2" href="https://github.com/mdrabic5/SSIP-2021-Age-recognition-project" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Ageless 2021</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
